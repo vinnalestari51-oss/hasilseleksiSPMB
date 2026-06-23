@@ -18,15 +18,6 @@ input,button{width:100%;padding:12px;border-radius:14px}
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
 <p><b>Pendaftaran ulang pada tanggal 29–30 Juni 2026 sesuai jadwal yang tertera sesuai nama dan membawa persyaratan yang masih belum lengkap,siswa menggunakan seragam SD Merah Putih</b></p>
-</div></div>
-   <span>INFORMASI PENGAMBILAN SKL & RAPOR</span>
-                                    </div>
-                                    <ul class="skl-details">
-                                        <li><i class="fa-solid fa-calendar-day"></i><span><strong>Hari / Tanggal:</strong> Sabtu, 6 Juni 2026</span></li>
-                                        <li><i class="fa-solid fa-clock"></i><span><strong>Waktu:</strong> Jam 09.00 WIB</span></li>
-                                        <li><i class="fa-solid fa-location-dot"></i><span><strong>Tempat/Seragam:</strong> TU SMP Negeri 1 Lingga/Baju Seragam Putih Biru Menggunakan Sepatu Sekolah Hitam</span></li>
-                                    </ul>
-                                </div>
 <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
 <input id='q' placeholder='Ketik nama siswa'>
