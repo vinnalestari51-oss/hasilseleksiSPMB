@@ -1,20 +1,162 @@
-<html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
-<title>PPDB SMPN 1 Lingga</title>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PPDB SMPN 1 Lingga 2026/2027</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
-body{margin:0;font-family:Arial;background:#f0f7ff;padding-bottom:80px}.c{max-width:440px;margin:auto;padding:16px}
-.card{background:rgba(255,255,255,.8);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:16px;margin:12px 0}
-input,button{width:100%;padding:14px;border-radius:14px;border:1px solid #ddd;box-sizing:border-box}button{background:#2563eb;color:#fff;border:none;margin-top:8px}
+body{margin:0;background:#f0f7ff;font-family:system-ui,sans-serif}
+.wrap{max-width:440px;margin:auto;padding:16px 16px 90px}
+.card{background:rgba(255,255,255,.8);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.9);border-radius:24px;padding:18px}
 .nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:#fff;display:flex;justify-content:space-around;align-items:center}
-.hidden{display:none} .bar{height:28px;border-radius:14px;color:#fff;line-height:28px;padding-left:10px;margin:8px 0}
-.af{background:#34d399;width:57%} .pr{background:#60a5fa;width:45%} .zo{background:#fb923c;width:100%}
-</style></head><body><div class='c'>
-<div id='home' class='hidden'><div class='card'><h3>Statistik Kelulusan</h3><div class='bar af'>Afirmasi 32</div><div class='bar pr'>Prestasi 25</div><div class='bar zo'>Zonasi 56</div></div><div class='card'>Pendaftaran ulang tanggal 29–30 Juni 2026 sesuai jadwal pada hasil pencarian.</div></div>
-<div id='hasil'><div class='card'><h2>Hasil Seleksi PPDB</h2><input id='nama' placeholder='Masukkan nama'><button onclick='cari()'>Hasil Seleksi</button><div id='out'></div></div></div>
-</div><div class='nav'><a onclick="showp('home')"><i class='fa fa-chart-simple'></i> Home</a><a onclick="showp('hasil')"><i class='fa fa-address-card'></i> Hasil Seleksi</a></div>
+.barbg{height:18px;background:#e5e7eb;border-radius:20px}.bar{height:18px;border-radius:20px}
+input,button{width:100%;padding:12px;border-radius:14px}
+.hidden{display:none}
+</style></head><body>
+<div class='wrap'>
+<div id='home' class='hidden'><div class='card'>
+<h2>Rekap Jalur Seleksi</h2>
+<p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
+<p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
+<p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
+<p><b>Pendaftaran ulang 29–30 Juni 2026 sesuai jadwal nama pada tabel kelulusan.</b></p>
+</div></div>
+
+<div id='hasil'><div class='card'>
+<h2>Hasil Seleksi</h2>
+<input id='q' placeholder='Ketik nama siswa'>
+<button onclick='cari()'>Hasil Seleksi</button>
+<div id='out'></div>
+</div></div>
+</div>
+<div class='nav'>
+<div onclick="show('home')"><i class="fa-solid fa-chart-simple"></i><br>Home</div>
+<div onclick="show('hasil')"><i class="fa-solid fa-address-card"></i><br>Hasil Seleksi</div>
+</div>
 <script>
-const data=[{"nama": "AFIKA DWI KAILA", "asal": "SDN 001 LINGGA UTARA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "AL HAWARY", "asal": "SDN 013 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "AL MUKRAMIN RABBANI", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "ALHADI NURHIDAYAT", "asal": "SDN 009 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "ANUGRAH DWI HERISKA", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "APITRA DLARA", "asal": "SDN 009 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "ARMAN SYAPUTRA", "asal": "SDN 006 GUNUNG KIJANG", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "AUFAR", "asal": "SDN 002 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "AYUP KURNIAWAN", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "BAYU GIFBRAN AL-GAZALY", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.00 WIB"}, {"nama": "DEKA AVINO ARASYID", "asal": "SDN 014 LINGGA UTARA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "ELITA NOVIANTI", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "ERNI YUSNITA", "asal": "SDN 013 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "FAHREZA ALVAREZQI", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "GHAZIA HAFIZHA", "asal": "SDN 003 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "M. ALFIZZA SABIQ", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "M. REZA AL-FIQRI", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "MUHAMMAD RAFFI", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "MUHAMMAD THORIQ AL FAQIH", "asal": "SDN 001 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "MUHAMMAD WILDAN FADAIL", "asal": "SDN 001 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.15 WIB"}, {"nama": "NUR'AINA SHOLEHAH", "asal": "SDN 003 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "OKY SAPUTRA LINGGA", "asal": "SDN 002 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "QANITA SAJIDAH", "asal": "SDN 009 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "QEYSA AULIA", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "RAJA AGUENSA", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "RARA ANDRIYANI", "asal": "SDN 006 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "RAYYAN ILMARIZKI", "asal": "SDN 001 LINGGA UTARA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "RESYA NURFAZWA", "asal": "SDN 001 LINGGA UTARA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "RIA OKTIFIANA", "asal": "SDN 009 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "SITI QOMARI LAILATUS SA'ADAH", "asal": "SDN 003 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.30 WIB"}, {"nama": "SUCI SILVITA", "asal": "SDN 012 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "ZAKY RAMADHAN", "asal": "SDN 009 LINGGA", "jalur": "AFIRMASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "ALBY LUTHFY PRATAMA", "asal": "SDN 013 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "ALFIRA KHAIRUNNISA", "asal": "SDN 007 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "BALQIS QUDRATUNNADA", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "DHIYA QISTINA SETIANIE", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "DRAKIRA AQIFA NAYLA", "asal": "SDN 001 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "JIA FISSILMIKAFFAH", "asal": "SDN 004 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "KIASATINA FAEZYA", "asal": "SDN 001 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "MOHAMMAD MA'RUF", "asal": "SDN 012 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 08.45 WIB"}, {"nama": "MUHAMMAD FHERALDI NOVIYANDA", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "NAYLA RAMADHANI", "asal": "SDN 004 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "NAYRA AYU SABILA", "asal": "SDN 009 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "SALWA SALSABILA PRASILIA", "asal": "SDN 001 LINGGA UTARA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "SASKIA EKA PUTRI", "asal": "SDN 004 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "SHAFIYYA RAMIKA WAHYUNI", "asal": "SDN 004 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "TAUFIQUL HAKIM", "asal": "SDII LUQMAN AL HAKIM", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "ALTHAR AKHTAR AL WAHID", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "ARIZTA RIZTY SAFITRI", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "ASHOFIA MARITZAHANA", "asal": "SDN 004 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.00 WIB"}, {"nama": "ELZA DESVARIANI", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "HAFIS RIZAY RAMADHANI", "asal": "SDN 003 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "HAZIQ AL - FARIZKY", "asal": "SDN 013 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "KHAIRINNISWA", "asal": "SDN 003 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "MALKA ATRIAYA FAWWAZI", "asal": "", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "NAWLA MIZWA AMBARIN", "asal": "SDII LUQMAN AL HAKIM", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "ZHULFAIRA RAFIFA RHAMADANI B.", "asal": "SDN 003 LINGGA", "jalur": "PRESTASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "ADE RAHMA YULIA", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "AISHA FAZILLA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "ALFIAN FAHMI", "asal": "SDN 007 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.15 WIB"}, {"nama": "ALISHA ZULFA KHAIRINA", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "ALLISA MAGFIRA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "ALYA KHAIRUNNISA", "asal": "SDN 002 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "ANGMAR JUANGGI", "asal": "SDN 007 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "AQMAL LUTHFILLAH FERNANDO", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "ARDIAN", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "DAFIYA CHALESTA", "asal": "SDN 002 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "DANENDRA ALTAF FADHALISHABIR", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "DARIN FEBRI MAHARANI", "asal": "SDN 003 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "DEWI MAHA TIKA", "asal": "SDN 003 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.30 WIB"}, {"nama": "ELMIRA RISQI AULIA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "ERNA WATI", "asal": "SDN 003 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "FAIDA ANNAILA", "asal": "SDN 007 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "FAZA JULIANDA PUTRA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "FAZILLA MASTURA", "asal": "SDN 007 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "INTAN NOVILA SARI", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "JIHAN TALITA ULFA", "asal": "SDN 007 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "KENNETH JORDAN TEO", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "KENZIE KIRANA RAJNI", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "KHAIRA NADHIFA AZZAHRA", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 09.45 WIB"}, {"nama": "M.ZHAFRAN SYADRIFAL", "asal": "SDN 013 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MAULANADI RANGGA", "asal": "SDII LUQMAN AL HAKIM", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MAULIDIA NADIA", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MIA FATIHA SYAHADA", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MUHAMMAD ALGHIAN RADITHYA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MUHAMMAD ALIF MIRZA", "asal": "SDII LUQMAN AL - HAKIM", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MUHAMMAD FACHRY ALZAKI", "asal": "SDIT AL-MADANI", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MUHAMMAD FEZI JAYANDA", "asal": "SDN 003 LUNGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "MUHAMMAD IQBAL", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "NAZHIFA AMEERA", "asal": "SDN 003 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.00 WIB"}, {"nama": "NILA PRATAMI PUTRI", "asal": "SDN 002 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "NUR KHAIRUNNISA", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "NURFATIHA AQILA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "NUSYAHIRA", "asal": "SDN 002 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "PUTRI SELFY RAMADANI", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "RAFFA AKBAR AL QORI", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "RAFFI NAMZARI", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "RAFIE ILHAMSYAH", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "RAJA LETISHA ULFAIRA DIANNISA", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "REWIS LIANSYAH", "asal": "SDN 003 LUNGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.15 WIB"}, {"nama": "RINDAYANI NURSALSABELLA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "RIZA  AHMAD", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "ROZAQ ANDIKA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "SITI EARLYTA MUTIA", "asal": "SDN 013 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "SOFIYA BAHAR", "asal": "SDN 004 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "SYAFIRA SEPTIANA", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "SYAKILA WARDATUL UFAIRA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "TENGKU SALSABILA QURROTA A'YUN", "asal": "SDII LUQMAN AL - HAKIM", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "THIERRY SIMAMORA", "asal": "SDN 01 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "YASMIN ALIFA VIANDARA", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "ZEYADATE UBAIDILLAH", "asal": "SDN 001 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "KELVIN HAZIMULFIKRI", "asal": "SDN 006 LINGGA", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}, {"nama": "MUHAMMAD FAEYZA", "asal": "SDII LUQMAN AL - HAKIM", "jalur": "ZONASI", "jadwal": "SENIN, 29 JUNI 2026 JAM 10.30 WIB"}];
-function showp(p){home.classList.add('hidden');hasil.classList.add('hidden');document.getElementById(p).classList.remove('hidden')}
-showp('hasil');
-function cari(){let q=document.getElementById('nama').value.toUpperCase();let h=data.filter(x=>x.nama.toUpperCase().includes(q));document.getElementById('out').innerHTML=h.length?h.map(x=>`<div class='card'><h3>${x.nama}</h3><p><b>Asal:</b> ${x.asal}</p><p><b>Status:</b> LULUS</p><p><b>Jalur:</b> ${x.jalur}</p><p><b>Jadwal:</b> ${x.jadwal}</p></div>`).join(''):"<div class='card'>Data tidak ditemukan</div>";}
+const siswa=[
+{name:"AFIKA DWI KAILA",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AL HAWARY",asal:"SDN 013 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AL MUKRAMIN RABBANI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"ALHADI NURHIDAYAT",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"ANUGRAH DWI HERISKA",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"APITRA DLARA",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"ARMAN SYAPUTRA",asal:"SDN 006 GUNUNG KIJANG",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AUFAR",asal:"SDN 002 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AYUP KURNIAWAN",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"BAYU GIFBRAN AL-GAZALY",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"DEKA AVINO ARASYID",asal:"SDN 014 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"ELITA NOVIANTI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"ERNI YUSNITA",asal:"SDN 013 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"FAHREZA ALVAREZQI",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"GHAZIA HAFIZHA",asal:"SDN 003 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"M. ALFIZZA SABIQ",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"M. REZA AL-FIQRI",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"MUHAMMAD RAFFI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"MUHAMMAD THORIQ AL FAQIH",asal:"SDN 001 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"MUHAMMAD WILDAN FADAIL",asal:"SDN 001 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.15 WIB"},
+{name:"NUR'AINA SHOLEHAH",asal:"SDN 003 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"OKY SAPUTRA LINGGA",asal:"SDN 002 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"QANITA SAJIDAH",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"QEYSA AULIA",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"RAJA AGUENSA",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"RARA ANDRIYANI",asal:"SDN 006 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"RAYYAN ILMARIZKI",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"RESYA NURFAZWA",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"RIA OKTIFIANA",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"SITI QOMARI LAILATUS SA'ADAH",asal:"SDN 003 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
+{name:"SUCI SILVITA",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"ZAKY RAMADHAN",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.45 WIB"},
+
+// PRESTASI
+{name:"ALBY LUTHFY PRATAMA",asal:"SDN 013 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"ALFIRA KHAIRUNNISA",asal:"SDN 007 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"BALQIS QUDRATUNNADA",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"DHIYA QISTINA SETIANIE",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"DRAKIRA AQIFA NAYLA",asal:"SDN 001 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"JIA FISSILMIKAFFAH",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"KIASATINA FAEZYA",asal:"SDN 001 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+{name:"MOHAMMAD MA'RUF",asal:"SDN 012 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
+// PRESTASI (lanjutan)
+{name:"MUHAMMAD FHERALDI NOVIYANDA",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"NAYLA RAMADHANI",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"NAYRA AYU SABILA",asal:"SDN 009 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"SALWA SALSABILA PRASILIA",asal:"SDN 001 LINGGA UTARA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"SASKIA EKA PUTRI",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"SHAFIYYA RAMIKA WAHYUNI",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"TAUFIQUL HAKIM",asal:"SDII LUQMAN AL HAKIM",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"ALTHAR AKHTAR AL WAHID",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"ARIZTA RIZTY SAFITRI",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"ASHOFIA MARITZAHANA",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
+{name:"ELZA DESVARIANI",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"HAFIS RIZAY RAMADHANI",asal:"SDN 003 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"HAZIQ AL - FARIZKY",asal:"SDN 013 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"KHAIRINNISWA",asal:"SDN 003 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"MALKA ATRIAYA FAWWAZI",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"NAWLA MIZWA AMBARIN",asal:"SDII LUQMAN AL HAKIM",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"ZHULFAIRA RAFIFA RHAMADANI B.",asal:"SDN 003 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
+
+// ZONASI
+{name:"ADE RAHMA YULIA",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"AISHA FAZILLA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"ALFIAN FAHMI",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
+{name:"ALISHA ZULFA KHAIRINA",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"ALLISA MAGFIRA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"ALYA KHAIRUNNISA",asal:"SDN 002 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"ANGMAR JUANGGI",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"AQMAL LUTHFILLAH FERNANDO",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"ARDIAN",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"DAFIYA CHALESTA",asal:"SDN 002 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"DANENDRA ALTAF FADHALISHABIR",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"DARIN FEBRI MAHARANI",asal:"SDN 003 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"DEWI MAHA TIKA",asal:"SDN 003 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.30 WIB"},
+{name:"ELMIRA RISQI AULIA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"ERNA WATI",asal:"SDN 003 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"FAIDA ANNAILA",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"FAZA JULIANDA PUTRA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"FAZILLA MASTURA",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"INTAN NOVILA SARI",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"JIHAN TALITA ULFA",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"KENNETH JORDAN TEO",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"KENZIE KIRANA RAJNI",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"KHAIRA NADHIFA AZZAHRA",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.45 WIB"},
+{name:"M.ZHAFRAN SYADRIFAL",asal:"SDN 013 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MAULANADI RANGGA",asal:"SDII LUQMAN AL HAKIM",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MAULIDIA NADIA",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MIA FATIHA SYAHADA",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MUHAMMAD ALGHIAN RADITHYA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MUHAMMAD ALIF MIRZA",asal:"SDII LUQMAN AL HAKIM",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MUHAMMAD FACHRY ALZAKI",asal:"SDIT AL-MADANI",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MUHAMMAD FEZI JAYANDA",asal:"SDN 003 LUNGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"MUHAMMAD IQBAL",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"NAZHIFA AMEERA",asal:"SDN 003 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.00 WIB"},
+{name:"NILA PRATAMI PUTRI",asal:"SDN 002 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"NUR KHAIRUNNISA",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"NURFATIHA AQILA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"NUSYAHIRA",asal:"SDN 002 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"PUTRI SELFY RAMADANI",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"RAFFA AKBAR AL QORI",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"RAFFI NAMZARI",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"RAFIE ILHAMSYAH",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"RAJA LETISHA ULFAIRA DIANNISA",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"REWIS LIANSYAH",asal:"SDN 003 LUNGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.15 WIB"},
+{name:"RINDAYANI NURSALSABELLA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"RIZA AHMAD",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"ROZAQ ANDIKA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"SITI EARLYTA MUTIA",asal:"SDN 013 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"SOFIYA BAHAR",asal:"SDN 004 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"SYAFIRA SEPTIANA",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"SYAKILA WARDATUL UFAIRA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"TENGKU SALSABILA QURROTA A'YUN",asal:"SDII LUQMAN AL HAKIM",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"THIERRY SIMAMORA",asal:"SDN 01 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"YASMIN ALIFA VIANDARA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"ZEYADATE UBAIDILLAH",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"KELVIN HAZIMULFIKRI",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+{name:"MUHAMMAD FAEYZA",asal:"SDII LUQMAN AL HAKIM",jalur:"ZONASI",jadwal:"29 Juni 2026 10.30 WIB"},
+];
+function show(id){home.classList.add('hidden');hasil.classList.add('hidden');document.getElementById(id).classList.remove('hidden')}
+function cari(){
+let q=document.getElementById('q').value.toUpperCase();
+let r=siswa.filter(s=>s.name.toUpperCase().includes(q));
+out.innerHTML=r.length?r.map(s=>`<div class='card'><h3>${s.name}</h3><p>${s.asal}</p><p>${s.jalur}</p><p>${s.jadwal}</p></div>`).join(''):'Data tidak ditemukan';
+}
+show('hasil');
 </script></body></html>
