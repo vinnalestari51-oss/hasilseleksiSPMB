@@ -1,4 +1,4 @@
-<html><html lang="id"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PPDB SMPN 1 Lingga 2026/2027</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -17,11 +17,11 @@ input,button{width:100%;padding:12px;border-radius:14px}
 <p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
-<p><b>Pendaftaran ulang 29–30 Juni 2026 sesuai jadwal yang tercantum.</b></p>
+<p><b>Pendaftaran ulang 29–30 Juni 2026 sesuai jadwal nama pada tabel kelulusan.</b></p>
 </div></div>
 
 <div id='hasil'><div class='card'>
-<h2>Hasil Seleksi SPMB SMP Negeri 1 Lingga</h2>
+<h2>Hasil Seleksi</h2>
 <input id='q' placeholder='Ketik nama siswa'>
 <button onclick='cari()'>Hasil Seleksi</button>
 <div id='out'></div>
@@ -33,7 +33,7 @@ input,button{width:100%;padding:12px;border-radius:14px}
 </div>
 <script>
 const siswa=[
-{name:"AFIKA DWI KAILA",Sekolah asal:"SDN 001 LINGGA UTARA",Jalur pendaftaran:"AFIRMASI",Jadwal daftar ulang:"29 Juni 2026 08.00 WIB"},
+{name:"AFIKA DWI KAILA",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"AL HAWARY",asal:"SDN 013 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"AL MUKRAMIN RABBANI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"ALHADI NURHIDAYAT",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
