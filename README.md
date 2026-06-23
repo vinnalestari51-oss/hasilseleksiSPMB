@@ -32,7 +32,7 @@ input,button{width:100%;padding:12px;border-radius:14px}
 </div>
 <script>
 const siswa=[
-{name:"AFIKA DWI KAILA",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AFIKA DWI KAILA",asal:"SDN 001 LINGGA UTARA",lolosjalur:"AFIRMASI",daftar ulang:"29 Juni 2026 08.00 WIB"},
 {name:"AL HAWARY",asal:"SDN 013 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"AL MUKRAMIN RABBANI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"ALHADI NURHIDAYAT",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
