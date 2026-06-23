@@ -17,7 +17,7 @@ input,button{width:100%;padding:12px;border-radius:14px}
 <p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
-<p><b>Pendaftaran ulang sesuai jadwal pada nama, membawa syarat yang belum lengkap, siswa menggunakan seragam SD</b></p>
+<p><b>Daftar ulang sesuai jadwal pada nama, bagi yang belum melengkapi syarat, harap dibawa, siswa menggunakan seragam SD</b></p>
 </div></div>
 <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
