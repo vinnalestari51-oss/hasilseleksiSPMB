@@ -1,6 +1,6 @@
 <html><html lang="id"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hasil Seleksi SPMB SMP Negeri 1 Lingga 2026/2027</title>
+<title>Hasil Seleksi SPMB SMPN 1 Lingga TP. 2026/2027</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <style>
 body{margin:0;background:#f0f7ff;font-family:system-ui,sans-serif}
@@ -17,7 +17,9 @@ input,button{width:100%;padding:12px;border-radius:14px}
 <p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
-<p><b>Pendaftaran ulang pada tanggal 29–30 Juni 2026 sesuai jadwal yang tertera sesuai nama dan membawa persyaratan yang masih belum lengkap,siswa menggunakan seragam SD Merah Putih</b></p>
+<p><b>Pendaftaran ulang tanggal 29–30 Juni 2026 sesuai jadwal pada nama, membawa syarat yang belum lengkap, siswa menggunakan seragam SD</b></p>
+</div></div>
+
 <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
 <input id='q' placeholder='Ketik nama siswa'>
