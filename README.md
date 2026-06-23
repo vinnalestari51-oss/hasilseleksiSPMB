@@ -18,7 +18,35 @@ input,button{width:100%;padding:12px;border-radius:14px}
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
 <p><b>Pendaftaran ulang pada tanggal 29–30 Juni 2026 sesuai jadwal yang tertera sesuai nama dan membawa persyaratan yang masih belum lengkap,siswa menggunakan seragam SD Merah Putih</b></p>
-<div id='hasil'><div class='card'>
+<div class="card">
+    <h2>Rekap Jalur Seleksi</h2>
+
+    <p>Afirmasi: 32</p>
+    <div class="barbg">
+        <div class="bar" style="width:57%;background:#34d399"></div>
+    </div>
+
+    <p>Prestasi: 25</p>
+    <div class="barbg">
+        <div class="bar" style="width:45%;background:#93c5fd"></div>
+    </div>
+
+    <p>Zonasi: 56</p>
+    <div class="barbg">
+        <div class="bar" style="width:100%;background:#fdbb74"></div>
+    </div>
+
+    <div class="announcement">
+        <h4>Pengumuman</h4>
+        <ul>
+            <li>Pendaftaran ulang dilaksanakan pada tanggal 29–30 Juni 2026.</li>
+            <li>Jadwal daftar ulang mengikuti nama dan jam yang tercantum pada tabel kelulusan.</li>
+            <li>Peserta wajib membawa persyaratan yang masih belum lengkap.</li>
+            <li>Siswa hadir menggunakan seragam SD Merah Putih.</li>
+        </ul>
+    </div>
+</div>
+  <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
 <input id='q' placeholder='Ketik nama siswa'>
 <button onclick='cari()'>Hasil Seleksi</button>
