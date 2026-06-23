@@ -21,7 +21,7 @@ input,button{width:100%;padding:12px;border-radius:14px}
 </div></div>
 
 <div id='hasil'><div class='card'>
-<h2>Hasil Seleksi</h2>
+<h2>Hasil Seleksi SPMB SMP Negeri 1 Lingga</h2>
 <input id='q' placeholder='Ketik nama siswa'>
 <button onclick='cari()'>Hasil Seleksi</button>
 <div id='out'></div>
@@ -33,7 +33,7 @@ input,button{width:100%;padding:12px;border-radius:14px}
 </div>
 <script>
 const siswa=[
-{name:"AFIKA DWI KAILA",asal:"SDN 001 LINGGA UTARA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
+{name:"AFIKA DWI KAILA",Sekolah asal:"SDN 001 LINGGA UTARA",Jalur pendaftaran:"AFIRMASI",Jadwal daftar ulang:"29 Juni 2026 08.00 WIB"},
 {name:"AL HAWARY",asal:"SDN 013 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"AL MUKRAMIN RABBANI",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
 {name:"ALHADI NURHIDAYAT",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.00 WIB"},
