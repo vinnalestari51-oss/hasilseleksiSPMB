@@ -65,8 +65,6 @@ const siswa=[
 {name:"SITI QOMARI LAILATUS SA'ADAH",asal:"SDN 003 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.30 WIB"},
 {name:"SUCI SILVITA",asal:"SDN 012 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.45 WIB"},
 {name:"ZAKY RAMADHAN",asal:"SDN 009 LINGGA",jalur:"AFIRMASI",jadwal:"29 Juni 2026 08.45 WIB"},
-
-// PRESTASI
 {name:"ALBY LUTHFY PRATAMA",asal:"SDN 013 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
 {name:"ALFIRA KHAIRUNNISA",asal:"SDN 007 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
 {name:"BALQIS QUDRATUNNADA",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
@@ -75,7 +73,6 @@ const siswa=[
 {name:"JIA FISSILMIKAFFAH",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
 {name:"KIASATINA FAEZYA",asal:"SDN 001 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
 {name:"MOHAMMAD MA'RUF",asal:"SDN 012 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 08.45 WIB"},
-// PRESTASI (lanjutan)
 {name:"MUHAMMAD FHERALDI NOVIYANDA",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
 {name:"NAYLA RAMADHANI",asal:"SDN 004 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
 {name:"NAYRA AYU SABILA",asal:"SDN 009 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.00 WIB"},
@@ -93,8 +90,6 @@ const siswa=[
 {name:"MALKA ATRIAYA FAWWAZI",asal:"-",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
 {name:"NAWLA MIZWA AMBARIN",asal:"SDII LUQMAN AL HAKIM",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
 {name:"ZHULFAIRA RAFIFA RHAMADANI B.",asal:"SDN 003 LINGGA",jalur:"PRESTASI",jadwal:"29 Juni 2026 09.15 WIB"},
-
-// ZONASI
 {name:"ADE RAHMA YULIA",asal:"SDN 006 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
 {name:"AISHA FAZILLA",asal:"SDN 001 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
 {name:"ALFIAN FAHMI",asal:"SDN 007 LINGGA",jalur:"ZONASI",jadwal:"29 Juni 2026 09.15 WIB"},
