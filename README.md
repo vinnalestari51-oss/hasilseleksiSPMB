@@ -10,15 +10,54 @@ body{margin:0;background:#f0f7ff;font-family:system-ui,sans-serif}
 .barbg{height:18px;background:#e5e7eb;border-radius:20px}.bar{height:18px;border-radius:20px}
 input,button{width:100%;padding:12px;border-radius:14px}
 .hidden{display:none}
+
+/* EFEK BINTANG KEJORA KELULUSAN */
+.star-field-overlay{
+position:fixed;
+top:0;left:0;width:100vw;height:100vh;
+pointer-events:none;
+z-index:999;
+overflow:hidden;
+display:none;
+}
+.kejora-star{
+position:absolute;
+color:#fbbf24;
+filter:drop-shadow(0 0 8px #f59e0b);
+animation:kejoraFly 2.8s ease-out forwards;
+}
+@keyframes kejoraFly{
+0%{transform:scale(.2) translate(0,0) rotate(0deg);opacity:0}
+20%{opacity:1;transform:scale(1.4) translate(10px,-20px) rotate(45deg)}
+100%{opacity:0;transform:scale(.3) translate(60px,-120px) rotate(180deg)}
+}
+.lulus-banner{
+margin-top:15px;
+padding:18px;
+border-radius:20px;
+text-align:center;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+font-weight:700;
+box-shadow:0 8px 20px rgba(37,99,235,.3);
+animation:popLulus .6s ease;
+}
+@keyframes popLulus{
+from{transform:scale(.5);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
 </style></head><body>
+<div id='kejora-overlay' class='star-field-overlay'></div>
 <div class='wrap'>
 <div id='home' class='hidden'><div class='card'>
 <h2>Rekap Jalur Seleksi</h2>
 <p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
-<p><b>Daftar ulang sesuai jadwal pada nama; bagi yang belum melengkapi syarat, harap dibawa saat daftar ulang; siswa menggunakan seragam SD dan membawa pena</b></p>
+<p><b>Daftar ulang sesuai jadwal, melengkapi syarat bagi yang belum lengkap, siswa menggunakan seragam SD dan membawa pena</b></p>
 </div></div>
+
 <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
 <input id='q' placeholder='Ketik nama siswa'>
@@ -147,10 +186,41 @@ const siswa=[
 {name:"MUHAMMAD FAEYZA",asal:"SDII LUQMAN AL HAKIM",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
 ];
 function show(id){home.classList.add('hidden');hasil.classList.add('hidden');document.getElementById(id).classList.remove('hidden')}
+
+function triggerKejoraEffect(){
+ const overlay=document.getElementById('kejora-overlay');
+ overlay.innerHTML='';
+ overlay.style.display='block';
+
+ for(let i=0;i<40;i++){
+   let star=document.createElement('i');
+   star.className='fa-solid fa-star kejora-star';
+   star.style.left=Math.random()*100+'vw';
+   star.style.top=Math.random()*100+'vh';
+   star.style.fontSize=(10+Math.random()*18)+'px';
+   star.style.animationDelay=Math.random()*1+'s';
+   overlay.appendChild(star);
+ }
+
+ setTimeout(()=>overlay.style.display='none',3500);
+}
+
 function cari(){
 let q=document.getElementById('q').value.toUpperCase();
 let r=siswa.filter(s=>s.name.toUpperCase().includes(q));
-out.innerHTML=r.length?r.map(s=>`<div class='card'><h3>${s.name}</h3><p>${s.asal}</p><p>${s.jalur}</p><p>${s.jadwal}</p></div>`).join(''):'Data tidak ditemukan';
+out.innerHTML=r.length?r.map(s=>`
+<div class='card'>
+<div class='lulus-banner'>
+🎉 SELAMAT, ANDA DINYATAKAN LULUS<br>
+<span>${s.jalur}</span>
+</div>
+<h3>${s.name}</h3>
+<p>${s.asal}</p>
+<p>${s.jalur}</p>
+<p>${s.jadwal}</p>
+</div>`).join(''):'Data tidak ditemukan';
+
+if(r.length){ triggerKejoraEffect(); }
 }
 show('hasil');
 </script></body></html>
