@@ -55,12 +55,12 @@ to{transform:scale(1);opacity:1}
 <p>Afirmasi: 32</p><div class='barbg'><div class='bar' style='width:57%;background:#34d399'></div></div>
 <p>Prestasi: 25</p><div class='barbg'><div class='bar' style='width:45%;background:#93c5fd'></div></div>
 <p>Zonasi: 56</p><div class='barbg'><div class='bar' style='width:100%;background:#fdbb74'></div></div>
-<p><b>Daftar ulang sesuai jadwal, melengkapi syarat bagi yang belum lengkap, siswa menggunakan seragam SD dan membawa pena</b></p>
+<p><b>daftar ulang tanggal sesuai jadwal, melengkapi persyaratan bagi yang belum lengkap, siswa menggunakan seragam SD dan membawa pena</b></p>
 </div></div>
 
 <div id='hasil'><div class='card'>
 <h2>Hasil Seleksi</h2>
-<input id='q' placeholder='Ketik nama siswa'>
+<input id='q' placeholder='Ketik 2 suku kata nama siswa'>
 <button onclick='cari()'>Hasil Seleksi</button>
 <div id='out'></div>
 </div></div>
@@ -206,12 +206,25 @@ function triggerKejoraEffect(){
 }
 
 function cari(){
-let q=document.getElementById('q').value.toUpperCase();
+let q=document.getElementById('q').value.trim().toUpperCase();
+
+let jumlahKata = q.split(/\s+/).filter(k=>k.length>0).length;
+
+if(jumlahKata < 2){
+out.innerHTML = `
+<div class='card' style='text-align:center;color:#dc2626'>
+<i class='fa-solid fa-triangle-exclamation' style='font-size:30px'></i>
+<h3>Masukkan Nama Lengkap</h3>
+<p>Silakan ketik minimal <b>2 suku kata</b> dari nama lengkap siswa.</p>
+</div>`;
+return;
+}
+
 let r=siswa.filter(s=>s.name.toUpperCase().includes(q));
 out.innerHTML=r.length?r.map(s=>`
 <div class='card'>
 <div class='lulus-banner'>
-🎉 SELAMAT, ANDA DINYATAKAN <br>
+🎉 SELAMAT, ANDA DINYATAKAN LULUS<br>
 <span>${s.jalur}</span>
 </div>
 <h3>${s.name}</h3>
