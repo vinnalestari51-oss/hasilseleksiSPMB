@@ -211,7 +211,7 @@ let r=siswa.filter(s=>s.name.toUpperCase().includes(q));
 out.innerHTML=r.length?r.map(s=>`
 <div class='card'>
 <div class='lulus-banner'>
-🎉 SELAMAT, ANDA DINYATAKAN LULUS<br>
+🎉 SELAMAT, ANDA DINYATAKAN <br>
 <span>${s.jalur}</span>
 </div>
 <h3>${s.name}</h3>
