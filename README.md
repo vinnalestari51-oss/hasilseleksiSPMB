@@ -136,7 +136,7 @@ const siswa=[
 {name:"ALYA KHAIRUNNISA",asal:"SDN 002 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"ANGMAR JUANGGI",asal:"SDN 007 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"AQMAL LUTHFILLAH FERNANDO",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
-{name:"ARDIAN",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
+{name:"ADRIAN",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"DAFIYA CHALESTA",asal:"SDN 002 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"DANENDRA ALTAF FADHALISHABIR",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"DARIN FEBRI MAHARANI",asal:"SDN 003 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
@@ -215,7 +215,7 @@ out.innerHTML = `
 <div class='card' style='text-align:center;color:#dc2626'>
 <i class='fa-solid fa-triangle-exclamation' style='font-size:30px'></i>
 <h3>Masukkan Nama Lengkap</h3>
-<p>Silakan ketik minimal <b>2 suku kata</b> dari nama lengkap siswa.</p>
+<p>Silahkan ketik <b>1 suku kata</b> dari nama lengkap siswa.</p>
 </div>`;
 return;
 }
