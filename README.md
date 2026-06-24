@@ -210,12 +210,12 @@ let q=document.getElementById('q').value.trim().toUpperCase();
 
 let jumlahKata = q.split(/\s+/).filter(k=>k.length>0).length;
 
-if(jumlahKata < 2){
+if(jumlahKata < 1){
 out.innerHTML = `
 <div class='card' style='text-align:center;color:#dc2626'>
 <i class='fa-solid fa-triangle-exclamation' style='font-size:30px'></i>
 <h3>Masukkan Nama Lengkap</h3>
-<p>Silahkan ketik <b>1 suku kata</b> dari nama lengkap siswa.</p>
+<p>Silahkan ketik <b>1 suku kata</b> dari nama lengkap siswa</p>
 </div>`;
 return;
 }
