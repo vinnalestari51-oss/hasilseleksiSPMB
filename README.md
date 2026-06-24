@@ -182,7 +182,7 @@ const siswa=[
 {name:"THIERRY SIMAMORA",asal:"SDN 01 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
 {name:"YASMIN ALIFA VIANDARA",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
 {name:"ZEYADATE UBAIDILLAH",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
-{name:"KELVIN HAZIMULFIKRI",asal:"SDN 006 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
+{name:"KEVIN HAZIMULFIKRI",asal:"SDN 006 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
 {name:"MUHAMMAD FAEYZA",asal:"SDII LUQMAN AL HAKIM",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 10.30 WIB"},
 ];
 function show(id){home.classList.add('hidden');hasil.classList.add('hidden');document.getElementById(id).classList.remove('hidden')}
