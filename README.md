@@ -129,7 +129,7 @@ const siswa=[
 {name:"NAWLA MIZWA AMBARIN",asal:"SDII LUQMAN AL HAKIM",jalur:"Lolos Jalur PRESTASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
 {name:"ZHULFAIRA RAFIFA RHAMADANI B.",asal:"SDN 003 LINGGA",jalur:"Lolos Jalur PRESTASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
 {name:"ADE RAHMA YULIA",asal:"SDN 006 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
-{name:"AISHA FAZILLA",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
+{name:"AISHA FAZZILA",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
 {name:"ALFIAN FAHMI",asal:"SDN 007 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.15 WIB"},
 {name:"ALISHA ZULFA KHAIRINA",asal:"SDN 006 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
 {name:"ALLISA MAGRIFA",asal:"SDN 001 LINGGA",jalur:"Lolos Jalur ZONASI",jadwal:"Daftar Ulang pada 29 Juni 2026 09.30 WIB"},
